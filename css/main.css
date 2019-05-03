@@ -1,11 +1,11 @@
 *, *::before, *::after {
-  box-sizing: border-box;  
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: Helvetica, Arial, sans-serif;  
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .page-header {
@@ -69,4 +69,66 @@ body {
   border-radius: 3px;
   margin-top: 15px;
   color: #fff;
+}
+
+main {
+  background: #e5e5e5;
+  height: 100%;
+  padding: 40px 30px;
+  color: #505050;
+}
+
+.highlights-header {
+  text-align: center;    
+}
+
+.highlights-header h1 {
+  margin: 10px 0;
+  font-weight: 300;
+}
+
+.highlights {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.highlight {
+  position: relative;
+  width: 32%;
+  margin-top: 25px;
+  border: #505050 1px solid;
+  padding: 20px;
+}
+
+.title-icon {
+  display: flex;
+  justify-content: space-between;  
+}
+
+.title-icon i {
+  color: #969696;
+}
+
+.highlight h2 {
+  font-weight: 300;
+}
+
+.highlight p {
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+@media (min-width: 480px) and (max-width: 960px) {
+  .highlight {
+    width: 49%;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .highlight {
+    width: 100%;
+  }
 }
