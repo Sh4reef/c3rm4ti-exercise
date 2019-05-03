@@ -1,0 +1,72 @@
+*, *::before, *::after {
+  box-sizing: border-box;  
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;  
+}
+
+header {
+  background-image: url(../img/work-desk__dustin-lee.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+}
+
+header:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 74, 117, 0.65);
+}
+
+.logo {
+  z-index: 1;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.hero {
+  z-index: 1;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 295px;
+  letter-spacing: 1px;
+  color: #fff;
+  line-height: 1.429;
+}
+
+.hero h1, p {
+  font-weight: 300;
+}
+
+.hero h1, h2, p {
+  margin: 5px;
+}
+
+.call-to-action {
+  background: transparent;
+  padding: 15px 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: #fff 2px solid;
+  border-radius: 3px;
+  margin-top: 15px;
+  color: #fff;
+}
