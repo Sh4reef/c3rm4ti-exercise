@@ -70,3 +70,8 @@ body {
   margin-top: 15px;
   color: #fff;
 }
+
+.call-to-action:hover {
+  background: #fff;
+  color: #004a75;
+}
