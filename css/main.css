@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Helvetica, Arial, sans-serif;
+  position: relative;
 }
 
 .page-header {
@@ -13,7 +14,7 @@ body {
   background-position: center;
   background-size: cover;
   height: 500px;
-  position: relative;  
+  position: relative;
 }
 
 .page-header:after {
@@ -134,15 +135,87 @@ footer {
   background: #003655;
 }
 
+.newsletter-panel {
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  background: rgba(0, 123, 193, 0.85);
+  color: #fff;
+  width: 45%;
+  height: auto;
+  line-height: 1.4;
+  box-sizing: content-box;
+  transform: translateY(100%);
+  transition-duration: 1s;
+}
+
+.slide-up {
+  transform: translateY(0);
+  transition-duration: 1s;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.newsletter-panel h2 {
+  font-weight: 400;
+}
+
+.newsletter-panel form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.newsletter-panel form input, button {
+  margin: 3px;
+  padding: 5px;
+}
+
+.newsletter-panel form input {
+  flex: 4;
+}
+
+.newsletter-panel form button {
+  flex: 1;
+  background: #ff8000;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+}
+
 @media (min-width: 480px) and (max-width: 960px) {
   .highlight {
     width: 49%;
     margin-top: 20px;
+  }
+
+  .newsletter-panel {
+    width: 450px;
   }
 }
 
 @media (max-width: 480px) {
   .highlight {
     width: 100%;
+  }
+
+  .newsletter-panel {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .newsletter-panel form {
+    flex-direction: column;
+  }
+
+  .newsletter-panel form button {
+    margin-top: 10px;
   }
 }
