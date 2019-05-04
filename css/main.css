@@ -71,6 +71,11 @@ body {
   color: #fff;
 }
 
+.call-to-action:hover {
+  background: #fff;
+  color: #004a75;
+}
+
 main {
   background: #e5e5e5;
   height: 100%;
@@ -79,7 +84,7 @@ main {
 }
 
 .highlights-header {
-  text-align: center;    
+  text-align: center;
 }
 
 .highlights-header h1 {
@@ -104,7 +109,7 @@ main {
 
 .title-icon {
   display: flex;
-  justify-content: space-between;  
+  justify-content: space-between;
 }
 
 .title-icon i {
