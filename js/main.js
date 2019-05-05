@@ -1,6 +1,9 @@
 (function () {
   'use strict';
-
+  var notificationElement = document.createElement('div');
+  notificationElement.classList.add('notification-panel');
+  notificationElement.innerHTML = '<div class="row"><p>By accessing and using this website, you acknowledge that you have read and understand our <a href="#">Cookie Policy</a>, <a href="#">Privacy Policy</a>, and our <a href="#">Terms of Service</a>.</p><button>Got it</button></div>';
+  var pageHeaderElement = document.querySelector('.page-header');
   var footerElement = document.querySelector('footer');
   var newsLetterElement = document.createElement('div');
   newsLetterElement.className = 'newsletter-panel';
@@ -20,16 +23,34 @@
     return localStorage.getItem('lasttime');
   };
 
+  function initialMargin() {
+    pageHeaderElement.style.marginTop = String(notificationElement.offsetHeight + notificationElement.offsetTop) + 'px';
+  }
+
+  function renderNotificationElement() {
+    pageHeaderElement.parentNode.insertBefore(notificationElement, pageHeaderElement);
+    var gotItBtn = document.querySelector('.notification-panel button');
+    gotItBtn.addEventListener('click', function (e) {
+      notificationElement.style.transition = '1s';
+      notificationElement.style.transform = 'translateY(-100%)';
+      pageHeaderElement.style.transition = '1s';
+      pageHeaderElement.style.marginTop = '0';
+      setTimeout(function () {
+        notificationElement.remove();
+      }, 1000)
+    })
+  };
+
   function renderNewsLetterElement() {
     if (diff_minutes(getLastTime(), new Date()) >= 10) {
       footerElement.parentNode.insertBefore(newsLetterElement, footerElement);
       var closeBtnElement = document.querySelector('.close-btn');
-      closeBtnElement.addEventListener('click', function (e) {        
+      closeBtnElement.addEventListener('click', function (e) {
         setLastTime();
         newsLetterElement.classList.remove('slide-up');
         setTimeout(function () {
           newsLetterElement.remove();
-        }, 1000)
+        }, 1000);
       });
     };
   };
@@ -41,10 +62,15 @@
     } else if (getLastTime() &&
       diff_minutes(getLastTime(), new Date()) >= 10) {
       localStorage.removeItem('lasttime');
-      renderNewsLetterElement();      
+      renderNewsLetterElement();
     };
   };
 
+  renderNotificationElement();
   renderNewsLetterElement();
+  initialMargin();
+  window.addEventListener('resize', function (e) {
+    initialMargin();
+  });
   document.addEventListener('scroll', scrollEventListener);
 })();
