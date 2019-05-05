@@ -91,7 +91,8 @@ main {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 20px 0;
+  max-width: 1366px;
+  margin: 20px auto;
 }
 
 .highlight {
